@@ -138,7 +138,9 @@ namespace Sitecore.Support.Forms.Core.Data
                 {
                     sectionItem = definition.UpdateSharedFields(this.database, null);
                 }
-                Parallel.ForEach<Sitecore.Support.Form.Data.FieldDefinition>(definition.Fields.OfType<Sitecore.Support.Form.Data.FieldDefinition>(), (Action<Sitecore.Support.Form.Data.FieldDefinition>)(f => this.SynchronizeField(sectionItem, new Sitecore.Support.Form.Data.FieldDefinition(f))));
+                #region Modified
+                Parallel.ForEach<Sitecore.Form.Core.Data.FieldDefinition>(definition.Fields.OfType<Sitecore.Form.Core.Data.FieldDefinition>(), (Action<Sitecore.Form.Core.Data.FieldDefinition>)(f => this.SynchronizeField(sectionItem, new Sitecore.Support.Form.Data.FieldDefinition(f))));
+                #endregion
                 if ((sectionItem != null) && !sectionItem.HasChildren)
                 {
                     sectionItem.Delete();

@@ -34,7 +34,9 @@ namespace Sitecore.Support.Form.Data
             this.Sortorder = string.Empty;
         }
 
-        public FieldDefinition(FieldDefinition field)
+        #region Modified
+        public FieldDefinition(Sitecore.Form.Core.Data.FieldDefinition field)
+        #endregion
         {
             this.ControlID = field.ClientControlID;
             this.Deleted = field.Deleted;
